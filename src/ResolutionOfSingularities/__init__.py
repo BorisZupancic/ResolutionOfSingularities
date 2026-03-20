@@ -1,4 +1,4 @@
 from .Weightings import *
 from .IdealOperations import *
-from .Resolutions import *
+from .Algorithms import *
 from .Deformations import *
