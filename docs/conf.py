@@ -4,7 +4,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import sys, os, warnings
-import sage_package.sphinx
+#import sage_package.sphinx
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 warnings.filterwarnings('ignore', category=DeprecationWarning)
 
@@ -53,6 +53,9 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #}
 
 autodoc_member_order = 'bysource'
+autodoc_default_options = {
+    'special-members': False,
+}
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

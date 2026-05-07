@@ -5,7 +5,7 @@ import numpy as np
 
 def global_associated_center(Y, ReportStatus = False):
     r"""
-    Compute the associated center of a subscheme of an affine scheme, :math:`Y \subset X`.
+    Compute the associated center of a subscheme of an affine scheme, :math:`Y \subset X`, using the `Method 2` of [Brais2025].
 
     INPUT:
 
@@ -73,6 +73,12 @@ def global_associated_center(Y, ReportStatus = False):
         sage: Y = X.subscheme(x*y*z*w + x*y)
         sage: Z = global_associated_center(Y); Z 
         Weighted subscheme of Affine Space of dimension 4 over Rational Field defined by parameters [z*w + 1, x, y] and invariant [3, 3, 3]
+
+    REFERENCES:
+    
+    .. [Brais2025] M. Brais,
+       *Streamlining resolution of singularities with weighted blow-ups*,
+       :arxiv:`2512.01859`
     
     """
     

@@ -28,7 +28,7 @@ pyrightconfig.json
 src/ResolutionOfSingularities/Algorithms/poisson_associated_center.py
 src/ResolutionOfSingularities/Algorithms/local_associated_center.py
 src/ResolutionOfSingularities/Deformations.py 
-src/ResolutionOfSingularities/old_algs.py
+src/ResolutionOfSingularities/Scrap/
 docs/algorithms/local_associated_center.rst 
 docs/algorithms/poisson_associated_center.rst 
 docs/deformations.rst

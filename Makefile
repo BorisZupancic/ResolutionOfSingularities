@@ -1,6 +1,9 @@
-.PHONY: all docs test test-file clean
+.PHONY: all install docs test test-file clean
 
-all: clean test docs 
+all: clean test docs
+
+install: 
+	sage -pip install -e . --prefix=$(HOME)/.sage/local
 
 docs:
 	PYTHONPATH=$(PWD)/src make -C docs clean html
