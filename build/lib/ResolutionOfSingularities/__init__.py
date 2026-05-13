@@ -1,7 +1,7 @@
 from .Weightings import *
 from .IdealOperations import *
 from .Algorithms import *
-from .Polyhedra import *
+
 #from .Deformations import *
 
 from .Scrap import *
