@@ -1,26 +1,26 @@
-# ResolutionOfSingularities.
+# ResolutionOfSingularities
 
 This is a SageMath package for performing resolution of singularities, using weighted blowups.
 > [!WARNING]
-> Actually, `ResolutionOfSingularities` cannot yet perform either of these tasks. 
+> Actually, `ResolutionOfSingularities` can't yet perform either of these tasks. 
 > What it can do right now is compute the associated center of a subscheme of an affine scheme. 
 
 ## Installation
 There are two easy ways to intall `ResolutionOfSingularties`. The only dependency is `sage`.
 
-### Option 1: Using `pip`.
-Use pip like you usually would:
+### Option 1: From GitHub with `pip`
+Use pip to install directly from GitHub:
 
 ```bash 
 sage -pip install git+github.com/BorisZupancic/ResolutionOfSingularities
 ```
     
-### Option 2: From source
+### Option 2: From source with `pip`
 Clone the repo then use pip in the repo directory:
 ```bash
 git clone https://github.com/BorisZupancic/ResolutionOfSingularities
 cd ResolutionOfSingularities
-sage -pip install -e . 
+sage -pip install -e .
 ```
 
 ## Basic Usage
