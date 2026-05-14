@@ -9,8 +9,9 @@ docs:
 	PYTHONPATH=$(PWD)/src make -C docs clean html
 	xdg-open docs/_build/html/index.html 2>/dev/null
 
+TEST_FILES := $(shell git ls-files 'src/*.py' 'src/**/*.py')
 test:
-	PYTHONPATH=$(PWD)/src sage -t src/ResolutionOfSingularities/
+	PYTHONPATH=$(PWD)/src sage -t $(TEST_FILES)
 
 test-file:
 	PYTHONPATH=$(PWD)/src sage -t src/ResolutionOfSingularities/$(FILE)

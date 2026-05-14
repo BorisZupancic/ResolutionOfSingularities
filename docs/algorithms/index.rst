@@ -6,3 +6,4 @@ Algorithms
    :caption: Algorithms:
 
    associated_center
+   associated_center_polyhedral

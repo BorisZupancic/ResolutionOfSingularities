@@ -18,3 +18,4 @@ documentation for details.
    algorithms/index
    weightings
    idealoperations
+   polyhedra

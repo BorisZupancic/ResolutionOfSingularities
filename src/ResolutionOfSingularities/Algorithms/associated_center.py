@@ -3,7 +3,7 @@ from ResolutionOfSingularities.IdealOperations import *
 from ResolutionOfSingularities.Weightings import *
 import numpy as np
 
-def global_associated_center(Y, ReportStatus = False):
+def global_associated_center(Y, verbose=False):
     r"""
     Compute the associated center of a subscheme of an affine scheme, :math:`Y \subset X`, using the `Method 2` of [Brais2025].
 
@@ -13,7 +13,7 @@ def global_associated_center(Y, ReportStatus = False):
 
     OUTPUT:
 
-    - An instance of :class:`AlgebraicScheme_subscheme_affine`; the associated center :math:`Z^{\mathrm{as}}_\bullet(X,Y)`.
+    - An instance of :class:`~ResolutionOfSingularities.Weightings.WeightedSubscheme`; the associated center :math:`Z^{\mathrm{as}}_\bullet(X,Y)`.
 
     EXAMPLES::
     
@@ -136,7 +136,7 @@ def global_associated_center(Y, ReportStatus = False):
     A = Y.ambient_space()
     Z = WeightedSubscheme(A,[],[])
     
-    if ReportStatus:
+    if verbose:
         step = Z.codim()
         print(f"STEP {step}:")
         print(rf"\Z^{ ({Z.codim()}) }_{{\bullet}} = {Z._latex_()}")
@@ -145,32 +145,33 @@ def global_associated_center(Y, ReportStatus = False):
 
     #RECURSION: Given Z^{j} ( non-admissible j-semi-associated center ), compute Z^{j+1} ( (j+1)-semi-associated center )
     while not Z.is_admissible(I) and Z.dim() > 0: 
-        if ReportStatus == True:
+        if verbose == True:
             step += 1
             print("")
             print(f"STEP {step}:")
             
         #1: Compute all b = (b1,...,bj,b{j+1}) such that \sum_{i=1}^j bi/ai < 1 and Db(I,b,x) = <1>
         B = betas(Z.a,Z.x)
-        print(f"Possible betas: B = {B}") if ReportStatus else None 
+        print(f"Possible betas: B = {B}") if verbose else None 
             
         #2: Compute the minimizer of Xi(B)
         b = B[np.argmin([Xi(b,Z.a) for b in B])]
-        print(f"Minimizer: b = {b}") if ReportStatus else None
+        print(f"Minimizer: b = {b}") if verbose else None
         
         #3: Compute a{j+1} 
         a = Z.a + [Xi(b,Z.a)]
-        print(f"New invariant: a = {a}") if ReportStatus else None
+        print(f"New invariant: a = {a}") if verbose else None
             
         #4: Compute x{j+1}
         b_ = b
         b_[-1] += -1
-        x = Z.x + [global_maximal_contact(Db(I,b_,Z.x))]
-        print(f"New parameter: x = {Z.x} (maximal contact of: {Db(I,b_,Z.x).gens()})") if ReportStatus else None
+        J = Db(I,b_,Z.x)
+        x = Z.x + [global_maximal_contact(J)]
+        print(f"New parameter: x = {x} (maximal contact of: {J.gens()})") if verbose else None
         
-        #SUB-STEP 5: Redefine center
+        #5: Redefine center
         Z = WeightedSubscheme(A,x,a)
-        if ReportStatus:  
+        if verbose:  
             print(rf"\Z^{ ({Z.codim()}) }_{{\bullet}} = {Z._latex_()}")
             print(rf"\mathrm{{ord}}_{{Z_\bullet}}(I) = {Z.weighted_ord(I)}")    
             print(f"Center is admissible: {Z.is_admissible(I)}")
