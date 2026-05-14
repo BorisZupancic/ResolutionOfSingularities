@@ -12,7 +12,7 @@ There are two easy ways to intall `ResolutionOfSingularties`. The only dependenc
 Use pip like you usually would:
 
 ```bash 
-sage -pip install git:github.com/BorisZupancic/ResolutionOfSingularities
+sage -pip install git+github.com/BorisZupancic/ResolutionOfSingularities
 ```
     
 ### Option 2: From source
@@ -34,7 +34,7 @@ Weighted subscheme of Affine Space of dimension 3 over Rational Field defined by
 ```
 
 ## Documentation
-For now there the docs are not hosted online but, if you installed `ResolutionOfSingularities` from source,
+For now the docs are not hosted online but, if you installed `ResolutionOfSingularities` from source,
 then you can build the docs yourself by running the following from `./ResolutionOfSingularities`:
 
 ```bash
